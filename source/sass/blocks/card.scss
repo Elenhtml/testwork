@@ -1,0 +1,284 @@
+.card {
+  margin-bottom: 30px;
+  background-color: transparent;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card__inner-wrapper {
+  display: block;
+  position: relative;
+  padding: 0 45px 288px 45px;
+  width: 320px;
+  color: #000000;
+  text-decoration: none;
+  background-color: #f2f2f2;
+  background-image: url("../img/background.png");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border: 4px solid #1698d9;
+  box-sizing: border-box;
+
+  @supports (-webkit-clip-path: polygon(0 47px, 47px 0, 100% 0, 100% 100%, 0 100%)) or (clip-path: polygon(0 47px, 47px 0, 100% 0, 100% 100%, 0 100%)) {
+    clip-path: polygon(0 47px, 47px 0, 100% 0, 100% 100%, 0 100%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: -11px;
+      width: 64px;
+      height: 4px;
+      background-color: #1698d9;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.card:not(.card--disabled) .card__inner-wrapper {
+  &:active {
+    border: 4px solid #d91667;
+
+    &::after {
+      background-color: #d91667;
+    }
+  }
+
+  &:active .card__amount {
+    background-color: #d91667;
+  }
+
+  &:active + .card__call {
+    display: none;
+  }
+
+  &:active ~ .card__call--active {
+    display: block;
+  }
+}
+
+.card__inner-wrapper--more-advantages {
+  padding-bottom: 272px;
+}
+
+.card__name {
+  display: block;
+  margin: 0;
+  margin-bottom: 8px;
+  padding-top: 18px;
+  width: 210px;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: normal;
+}
+
+.card__name--selected-hover {
+  display: none;
+  color: #d91667;
+}
+
+.card__title {
+  margin: 0;
+  margin-bottom: 3px;
+  padding: 0;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 38px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.card__subtitle {
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 0;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 26px;
+  font-weight: bold;
+}
+
+.card__advantages {
+  @include lists;
+  padding-bottom: 15px;
+}
+
+.card__advantage {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+}
+
+.card__bold {
+  font-weight: bold;
+}
+
+.card__amount {
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  width: 81px;
+  height: 81px;
+  background-color: #1698d9;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.card__weight {
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  width: 80px;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 42px;
+  line-height: 42px;
+  color: #ffffff;
+  font-weight: normal;
+  text-align: center;
+}
+
+.card__weight-measure {
+  display: block;
+  margin: 0;
+  margin-top: -2px;
+  padding: 0;
+  font-family: inherit;
+  font-size: 21px;
+  line-height: 22px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.card__call {
+  margin: 0;
+  margin-top: 14px;
+  padding: 0;
+  width: 320px;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+  font-weight: normal;
+  text-align: center;
+
+  &--active {
+    display: none;
+  }
+}
+
+.card__link {
+  margin: 0;
+  padding: 0;
+  color: #1698d9;
+  text-decoration: none;
+  border-bottom: 1px dashed #1698d9;
+
+  &:hover {
+    border-bottom: 2px solid #1698d9;
+  }
+
+  &:active {
+    border-bottom: 1px dotted #1698d9;
+  }
+}
+
+.card__blue-point {
+  color: #1698d9;
+}
+
+.card__call--disabled {
+  display: none;
+}
+
+.card--disabled .card__inner-wrapper {
+  color: rgba(0, 0, 0, 0.5);
+  background-color: #f2f2f2;
+  background-image: url("../img/catdisabled.png");
+  border: 4px solid #b3b3b3;
+
+  &::after {
+    background-color: #b3b3b3;
+  }
+}
+
+.card--disabled .card__amount {
+  background-color: #b3b3b3;
+}
+
+.card--disabled .card__call {
+  display: none;
+}
+
+.card--disabled .card__call--disabled {
+  display: block;
+  color: #ffff66;
+}
+
+.card--selected:not(.card--disabled) .card__inner-wrapper {
+  border: 4px solid #d91667;
+
+  &::after {
+    background-color: #d91667;
+  }
+}
+
+.card--selected:not(.card--disabled) .card__amount {
+  background-color: #d91667;
+}
+
+.card--selected:not(.card--disabled) .card__call {
+  display: none;
+}
+
+.card--selected:not(.card--disabled) .card__call--active {
+  display: block;
+}
+
+.card--selected-hover:not(.card--disabled) .card__name {
+  display: none;
+}
+
+.card--selected-hover:not(.card--disabled) .card__name--selected-hover {
+  display: block;
+  color: #d91667;
+}
+
+@media (min-width: $tablet-width) {
+  .card:nth-child(3n) {
+    margin-left: 28px;
+  }
+
+  .card:nth-child(3n+1) {
+    margin-right: 174px;
+    margin-left: 174px;
+  }
+
+  .card__title {
+    font-size: 48px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .card {
+    margin-right: 80px;
+    margin-left: 0;
+  }
+
+  .card:nth-child(3n):not(:first-child) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .card:nth-child(3n+1) {
+    margin-right: 80px;
+    margin-left: 0;
+  }
+}
