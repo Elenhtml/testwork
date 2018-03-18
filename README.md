@@ -7,7 +7,7 @@
 * npm start - cборка проекта и вывод в локальном сервере.
 * npm run build - cборка проекта без вывода в локальном сервере.
 
-## [Ссылка для просмотра сверстанной страницы](https://github.com/Elenhtml/testwork/tree/master/docs/index.html)
+## [Ссылка для просмотра сверстанной страницы](https://elenhtml.github.io/testwork)
 
 Пояснения к решению задания:
 
