@@ -19,9 +19,9 @@ if (cards.length > 0) {
     });
   });
   cards.forEach(function (thinkOver) {
-    thinkOver.addEventListener("mouseout", function (evt) {
+    thinkOver.addEventListener("mouseleave", function (evt) {
       var _this = this;
-      if (evt.target === _this && evt.target !== _this.classList.contains("card__call")) {
+      if (evt.target === _this) {
         if (_this.classList.contains("card--selected")) {
           _this.classList.add("card--selected-hover");
           setTimeout(function () {
